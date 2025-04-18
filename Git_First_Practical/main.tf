@@ -33,3 +33,7 @@ resource "aws_route_table" "CRT" {
     gateway_id = aws_nat_gateway.mynat.id
   }
 }
+# Elastic IP (EIP) for the NAT Gateway
+resource "aws_eip" "MYEIP" {
+  domain = "vpc"
+}
