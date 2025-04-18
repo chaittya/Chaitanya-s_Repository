@@ -19,7 +19,11 @@ resource "aws_route_table" "MYRT" {
     cidr_block = "0.0.0.0/0" # Route all external traffic to the internet
     gateway_id = aws_internet_gateway.MYIGW.id
   }
-}
+
+}# Internet Gateway creation for public SUBNET 
+ resource "aws_internet_gateway" "MYIGW" {
+   vpc_id = aws_vpc.Chaitus_VPC.id
+ }
 
 # Create a Route Table for Private Subnet (routes traffic through NAT Gateway)
 resource "aws_route_table" "CRT" {
